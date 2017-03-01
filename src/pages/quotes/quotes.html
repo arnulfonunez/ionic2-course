@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{quoteItem?.category | uppercase}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card *ngFor="let quote of quoteItem.quotes; let i = index">
+  <ion-card-header>
+    #{{i + 1}}
+  </ion-card-header>
+  <ion-card-content>
+   <p> {{quote.text}}</p>
+   <p class="author">{{quote.person}}</p>
+  </ion-card-content>
+  
+  <!-- <ion-grid> the grid tab works but add extra space-->
+    <ion-row>
+       <ion-col text-right>
+       <button ion-button clear small (click)="onAddToFavorite(quote)">
+         Add to Favorite
+       </button>  
+       </ion-col>
+    </ion-row>
+  <!--</ion-grid> the grid tab works, but add extra space -->
+
+</ion-card>
+</ion-content>
