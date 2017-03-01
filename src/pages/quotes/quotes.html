@@ -17,9 +17,14 @@
   <!-- <ion-grid> the grid tab works but add extra space-->
     <ion-row>
        <ion-col text-right>
-       <button ion-button clear small (click)="onAddToFavorite(quote)">
+       <button ion-button clear small (click)="onAddToFavorite(quote)" *ngIf="!isFavorite(quote)">
          Add to Favorite
        </button>  
+
+       <button ion-button clear small  color="danger" (click)="onRemoveFromFavorite(quote)" *ngIf="isFavorite(quote)">
+         Remove from Favorite
+       </button>  
+
        </ion-col>
     </ion-row>
   <!--</ion-grid> the grid tab works, but add extra space -->

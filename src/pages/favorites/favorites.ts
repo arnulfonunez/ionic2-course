@@ -25,9 +25,21 @@ ionViewWillEnter(){
   this.quotes = this.quoteService.getFavoriteQuote();
 }
 
-onViewQuote(quote: Quote): void{
- let modal = this.modalController.create(QuotePage);
+onViewQuote(selectedQuote: Quote): void{
+ let modal = this.modalController.create(QuotePage,selectedQuote);
  modal.present();
+ modal.onDidDismiss((remove: boolean) => {
+    if(remove) {this.removeFromFavorite(selectedQuote);}
+ });
+}
+
+protected removeFromFavorite(quote: Quote): void{
+      this.quoteService.removeQuoteFromFavorites(quote);
+      this.quotes = this.quoteService.getFavoriteQuote();  
+}
+
+protected onDelete(quote): void{
+    this.removeFromFavorite(quote);
 }
 
   ionViewDidLoad() {

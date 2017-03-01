@@ -17,13 +17,12 @@ export class QuotesPage implements OnInit{
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController,
    private quoteService: QuotesService) {}
 
-
   ngOnInit(){
     this.quoteItem = this.navParams.data;
   }
 
 
-onAddToFavorite(selectedQuote: Quote):void{
+protected onAddToFavorite(selectedQuote: Quote):void{
   //Ask user if adding quote to onAddToFavorite
   //Add quote to onAddToFavorite
   let alert = this.alertCtrl.create({
@@ -46,6 +45,14 @@ onAddToFavorite(selectedQuote: Quote):void{
   alert.present();
 }
 
+
+protected onRemoveFromFavorite(selectedQuoted:Quote): void{
+  this.quoteService.removeQuoteFromFavorites(selectedQuoted);
+}
+
+protected isFavorite(quote:Quote): boolean{
+  return this.quoteService.isFavorite(quote);
+}
 
   ionViewDidLoad() {
     // this.quoteItem = this.navParams.data;

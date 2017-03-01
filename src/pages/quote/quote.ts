@@ -1,3 +1,4 @@
+import { Quote } from '../../data/quotes.interface';
 import { ViewController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -14,14 +15,23 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class QuotePage {
 
+ protected id: string = null;
+ protected person: string = null;
+ protected text: string = null;
+ //protected selectedQuote: Quote  = null; //I can get the quote or the single fields. I'll use the single fields for practice
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewController: ViewController) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QuotePage');
-  }
 
-onClose():void{
-    this.viewController.dismiss();  
+ionViewDidLoad(){
+  this.id = this.navParams.get('id');
+  this.person = this.navParams.get('person');
+  this.text = this.navParams.get('text');
 }
+
+protected onClose(remove: boolean = false):void{
+    this.viewController.dismiss(remove);  
+}
+
 
 }
