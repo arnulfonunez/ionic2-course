@@ -15,7 +15,7 @@ export class FavoritesPage implements OnInit{
 public quotes: Quote[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private quoteService: QuotesService,
-  private modalController: ModalController) {}
+  private modalController: ModalController ) {}
 
 ngOnInit(){
   //this.quotes = this.quoteService.getFavoriteQuote();
@@ -45,5 +45,11 @@ protected onDelete(quote): void{
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavoritesPage');
   }
+
+/*
+protected onOpenMenu(): void{
+ this.menuController.open();
+}
+*/
 
 }

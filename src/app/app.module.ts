@@ -1,3 +1,4 @@
+import { CommonService } from '../services/common.service';
 import { QuotesService } from '../services/quotes.service';
 import { SettingsPage } from '../pages/settings/settings';
 import { QuotesPage } from '../pages/quotes/quotes';
@@ -39,7 +40,7 @@ import {TabsPage} from '../pages/tabs/tabs'
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}
-    ,QuotesService
+    ,QuotesService,CommonService
     ]
 })
 export class AppModule {}
