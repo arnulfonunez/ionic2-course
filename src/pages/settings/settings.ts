@@ -9,7 +9,7 @@ import { NavController, NavParams, Toggle } from 'ionic-angular';
 })
 export class SettingsPage implements OnInit{
 
-  protected altBackground: boolean = false;
+  //protected altBackground: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private commonService: CommonService) {}
 
@@ -22,6 +22,11 @@ protected onToggle(toggle: Toggle): void{
 }
 
 ngOnInit(){
-this.altBackground = this.commonService.getAlternativeBackgroundToggled();
+//this.altBackground = this.commonService.getAlternativeBackgroundToggled();
 }
+
+protected getAltBackgroundToggle(): boolean{
+  return this.commonService.getAlternativeBackgroundToggled();
+}
+
 }
