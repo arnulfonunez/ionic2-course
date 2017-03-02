@@ -1,4 +1,3 @@
-import { Quote } from '../../data/quotes.interface';
 import { ViewController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
